@@ -93,20 +93,21 @@ public class ArrayOperator {
         }
     }
     
-    // alternative sorting approach - built-ins!
-	private static void sortArrayDescendingly(int[] array) {
-		// convert to Integer array
-		Integer[] objectArray = new Integer[ARRAY_LENGTH];
-		for(int i = 0; i < objectArray.length; i++)
-			objectArray[i] = Integer.valueOf(array[i]);
-
-		// sort in Reverse
-		Arrays.sort(objectArray, Collections.reverseOrder());
-
-		// convert back to int array
-		for(int i = 0; i < array.length; i++)
-			array[i] = objectArray[i].intValue();
-	}
+    /*
+     * Alternative sorting approach - built-ins!
+     * Reverse sort an array. Sorts the array in place.
+     */
+    private static void sortArrayDescendingly(int[] array) {
+        // convert to Integer array
+        Integer[] objectArray = new Integer[ARRAY_LENGTH];
+        for(int i = 0; i < objectArray.length; i++)
+            objectArray[i] = Integer.valueOf(array[i]);
+        // sort in Reverse
+        Arrays.sort(objectArray, Collections.reverseOrder());
+        // convert back to int array
+        for(int i = 0; i < array.length; i++)
+            array[i] = objectArray[i].intValue();
+    }
 
     private static void swap(int i, int j, int[] array) {
         int tmp = array[i];
