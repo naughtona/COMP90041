@@ -92,6 +92,22 @@ public class ArrayOperator {
                 stack.push(new Integer[] {storeIndex, r});
         }
     }
+    
+    /*
+     * Alternative sorting approach - built-ins!
+     * Reverse sort an array. Sorts the array in place.
+     */
+    private static void sortArrayDescendingly(int[] array) {
+        // convert to Integer array
+        Integer[] objectArray = new Integer[ARRAY_LENGTH];
+        for(int i = 0; i < objectArray.length; i++)
+            objectArray[i] = Integer.valueOf(array[i]);
+        // sort in Reverse
+        Arrays.sort(objectArray, Collections.reverseOrder());
+        // convert back to int array
+        for(int i = 0; i < array.length; i++)
+            array[i] = objectArray[i].intValue();
+    }
 
     private static void swap(int i, int j, int[] array) {
         int tmp = array[i];
@@ -105,7 +121,7 @@ public class ArrayOperator {
 
         int[] freqs = new int[max - min + 1];
         for(int i = 0; i < ARRAY_LENGTH; ++i)
-            freqs[numbers[i] - min] += 1;
+            freqs[array[i] - min] += 1;
         
         return min + indexOfMax(freqs);
     }
